@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/vilkas/Projects/vismaUzduotis/vismaUzduotis.csproj",
+      "projectUniqueName": "/Users/vilkas/Documents/GitHub/vismaUzduotis/vismaUzduotis.csproj",
       "projectName": "vismaUzduotis",
-      "projectPath": "/Users/vilkas/Projects/vismaUzduotis/vismaUzduotis.csproj",
+      "projectPath": "/Users/vilkas/Documents/GitHub/vismaUzduotis/vismaUzduotis.csproj",
       "packagesPath": "/Users/vilkas/.nuget/packages/",
-      "outputPath": "/Users/vilkas/Projects/vismaUzduotis/obj/",
+      "outputPath": "/Users/vilkas/Documents/GitHub/vismaUzduotis/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/vilkas/.config/NuGet/NuGet.Config"

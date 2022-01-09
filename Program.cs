@@ -12,11 +12,11 @@ namespace MetodasRegistracijosSistema
 
         static void Main(string[] args)
         {
-            Console.WriteLine("VISMA INTERNAL MEETINGS:");
+            Console.WriteLine("VISMA INTERNAL MEETINGS: \n");
 
             while (true)
             {
-                Console.WriteLine("1 - Registruotis \n 2 - Prisijungti \n 3 - Susitikimu sistema \n 4 - Profilis \n 5 - Atsijungti");
+                Console.WriteLine(" 1 - Registruotis \n 2 - Prisijungti \n 3 - Susitikimu sistema \n 4 - Profilis \n 5 - Atsijungti");
                 Console.Write("Jusu pasirinkimas: ");
                 int pasirinkimas = int.Parse(Console.ReadLine());
 
@@ -63,12 +63,13 @@ namespace MetodasRegistracijosSistema
                     }
                     else
                     {
-                        Console.WriteLine("Vartotojas nera prisijunges");
+                        Console.WriteLine("Vartotojas nera prisijunges \n");
                     }
                 }
                 if (pasirinkimas == 5)
                 {
-                    Console.WriteLine("Sėkmingai atsijungėte nuo sistemos");
+                    Console.Clear();
+                    Console.WriteLine("Sėkmingai atsijungėte nuo sistemos \n");
                     break;
                 }
             }
@@ -85,12 +86,12 @@ namespace MetodasRegistracijosSistema
 
             if (slaptazodis == pakartotasSlaptazodis)
             {
-                Console.WriteLine("Vartotojas priregistruotas");
+                Console.WriteLine("Vartotojas priregistruotas \n");
                 return true;
             }
             else
             {
-                Console.WriteLine("Neteisingas slaptazodis");
+                Console.WriteLine("Neteisingas slaptazodis \n");
                 return false;
             }
         }
@@ -98,12 +99,14 @@ namespace MetodasRegistracijosSistema
         {
             if (vardas == VARTOTOJAS && slaptazodis == SLAPTAZODIS)
             {
-                Console.WriteLine("Prisijungete sekmingai");
+                Console.Clear();
+                Console.WriteLine("Prisijungete sekmingai \n");
                 PRISIJUNGIMO_STATUSAS = true;
             }
             else
             {
-                Console.WriteLine("Prisijungti nepavyko. Blogas vartotojo vardas arba slaptazodis");
+                Console.Clear();
+                Console.WriteLine("Prisijungti nepavyko. Blogas vartotojo vardas arba slaptazodis \n");
             }
         }
         static void susitikimuSistema()
@@ -111,11 +114,11 @@ namespace MetodasRegistracijosSistema
             if (PRISIJUNGIMO_STATUSAS)
             {
                 Console.Clear();
-                Console.WriteLine("Susitikmų sistemos meniu");
+                Console.WriteLine("Susitikmų sistemos meniu \n");
 
                 while (true)
                 {
-                    Console.WriteLine(" 1 - Sukurti meetinga \n 2 - Ištrinti meetinga \n 3 - Meetingų sąrašas \n 4 - laisvas \n 5 - Atsijungti");
+                    Console.WriteLine(" 1 - Sukurti meetinga \n 2 - Ištrinti meetinga \n 3 - Meetingų sąrašas \n 4 - Prideti žmogų į susitikimą \n 5 - Pašalinti žmogų iš susitikimo \n 6 - Grižti į pagrindinį meniu");
                     Console.Write("Jusu pasirinkimas: ");
                     int pasirinkimas = int.Parse(Console.ReadLine());
 
@@ -131,39 +134,75 @@ namespace MetodasRegistracijosSistema
                         string atsakingasAsmuo = Console.ReadLine();
                         Console.WriteLine("Trumpas meetingo aprašymas: ");
                         string meetingoAprasymas = Console.ReadLine();
-                        Console.WriteLine("Pasirinkite kategorija (CodeMonkey, Hub, Short,TeamBuilding): ");
-                        string meetingoKategorija = Console.ReadLine();
-                        Console.WriteLine("Susitikimo tipas (Live, InPerson): ");
-                        string meetingoTipas = Console.ReadLine();
+                        Console.WriteLine("Pasirinkite kategorija 1 - CodeMonkey, 2 - Hub, 3 - Short, 4 - TeamBuilding): ");
+                        int kategorija = int.Parse(Console.ReadLine());
+                        if (kategorija == 1)
+                        {
+                            string meetingoKategorija = "CodeMonkey";
+                            Console.WriteLine(meetingoKategorija);
+                        }
+                        if (kategorija == 2)
+                        {
+                            string meetingoKategorija = "Hub";
+                            Console.WriteLine(meetingoKategorija);
+                        }
+                        if (kategorija == 3)
+                        {
+                            string meetingoKategorija = "Short";
+                            Console.WriteLine(meetingoKategorija);
+                        }
+                        if (kategorija == 4)
+                        {
+                            string meetingoKategorija = "TeamBuilding";
+                            Console.WriteLine(meetingoKategorija);
+                        }
+                        Console.WriteLine("Pasirinkite susitikimo tipa (1 - Live, 2 - InPerson): ");
+                        int meetingoTip = int.Parse(Console.ReadLine());
+                        if (meetingoTip == 1)
+                        {
+                            string meetingoTipas = "Live";
+                            Console.WriteLine(meetingoTipas);
+                        }
+                        if (meetingoTip == 2)
+                        {
+                            string meetingoTipas = "InPerson";
+                            Console.WriteLine(meetingoTipas);
+                        }
+
                         Console.WriteLine("Įveskite pradžios datą: ");
-                        DateTime meetingoPradziosData = DateTime.Parse(Console.ReadLine());
+                        string meetingoPradziosData = Console.ReadLine();
                         Console.WriteLine("Įveskite pabaigos datą: ");
-                        DateTime meetingoPabaigosData = DateTime.Parse(Console.ReadLine());
+                        string meetingoPabaigosData = Console.ReadLine();
 
-                        var meeting = new MeetingsClass(vardas, atsakingasAsmuo, meetingoAprasymas, meetingoKategorija, meetingoTipas, meetingoPradziosData, meetingoPabaigosData);
-
-                        File.WriteAllLines("meetingList.txt", meeting);
+                    }
+                    if (pasirinkimas == 2)
+                    {
+                        Console.WriteLine("Istrinti meetinga is saraso");
+                    }
+                    if (pasirinkimas == 3)
+                    {
+                        Console.WriteLine("meetingu sarasas rodomas cia");
+                    }
+                    if (pasirinkimas == 4)
+                    {
+                        Console.WriteLine("Prideti žmogų į susitikimą");
+                    }
+                    if (pasirinkimas == 5)
+                    {
+                        Console.WriteLine("Pašalinti žmogų iš susitikimo");
+                    }
+                    if (pasirinkimas == 6)
+                    {
+                        break;
                     }
                 }
-
-            }
-            else
-            {
-                Console.WriteLine("Neleidziama perziureti, iš pradžių prisijunkite arba registruokitės");
             }
         }
+                
+            
+        
 
-        static bool isaugotiNaujaSusitikima(string vardas, string atsakingasAsmuo, string meetingoAprasymas, string meetingoKategorija, string meetingoTipas, DateTime meetingoPradziosData, DateTime meetingoPabaigosData)
-        {
-
-            duomenys.id = DB.sekantisMeetingas();
-            DB.meetingai.Add(duomenys);
-
-            System.IO.File.WriteAllLines("SavedLists.txt", DB.meetingai);
-
-
-            return true;
-        }
+        
 
         public class Vartotojas
         {

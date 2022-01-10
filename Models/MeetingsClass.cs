@@ -9,19 +9,8 @@ namespace vismaUzduotis.Models
 		public string Description { get; set; }
 		public string Category { get; set; }
 		public string Type { get; set; }
-		public DateTime StartDate { get; set; }
-		public DateTime EndDate { get; set; }
-
-		public MeetingsClass(string vardas, string atsakingasAsmuo, string meetingoAprasymas, string meetingoKategorija, string meetingoTipas, DateTime meetingoPradziosData, DateTime meetingoPabaigosData)
-        {
-			Name = vardas;
-			ResponsiblePerson = atsakingasAsmuo;
-			Description = meetingoAprasymas;
-			Category = meetingoKategorija;
-			Type = meetingoTipas;
-			StartDate = meetingoPradziosData;
-			EndDate = meetingoPabaigosData;
-        }
+		public string StartDate { get; set; }
+		public string EndDate { get; set; }
 	}
 
 	

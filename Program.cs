@@ -118,6 +118,7 @@ namespace MetodasRegistracijosSistema
 
                 while (true)
                 {
+                    MeetingsClass susitikimas = new MeetingsClass();
                     Console.WriteLine(" 1 - Sukurti meetinga \n 2 - Ištrinti meetinga \n 3 - Meetingų sąrašas \n 4 - Prideti žmogų į susitikimą \n 5 - Pašalinti žmogų iš susitikimo \n 6 - Grižti į pagrindinį meniu");
                     Console.Write("Jusu pasirinkimas: ");
                     int pasirinkimas = int.Parse(Console.ReadLine());
@@ -126,53 +127,53 @@ namespace MetodasRegistracijosSistema
                     {
                         Console.Clear();
 
-                        List<MeetingsClass> susitikimas = new List<MeetingsClass>();
+                        
 
                         Console.WriteLine("Jūsų vardas: ");
-                        string vardas = Console.ReadLine();
+                        susitikimas.Name = Console.ReadLine();
                         Console.WriteLine("Atsakingas asmuo: ");
-                        string atsakingasAsmuo = Console.ReadLine();
+                        susitikimas.ResponsiblePerson = Console.ReadLine();
                         Console.WriteLine("Trumpas meetingo aprašymas: ");
-                        string meetingoAprasymas = Console.ReadLine();
+                        susitikimas.Description = Console.ReadLine();
                         Console.WriteLine("Pasirinkite kategorija 1 - CodeMonkey, 2 - Hub, 3 - Short, 4 - TeamBuilding): ");
                         int kategorija = int.Parse(Console.ReadLine());
                         if (kategorija == 1)
                         {
-                            string meetingoKategorija = "CodeMonkey";
-                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", meetingoKategorija);
+                            susitikimas.Category = "CodeMonkey";
+                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", susitikimas.Category);
                         }
                         if (kategorija == 2)
                         {
-                            string meetingoKategorija = "Hub";
-                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", meetingoKategorija);
+                            susitikimas.Category = "Hub";
+                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", susitikimas.Category);
                         }
                         if (kategorija == 3)
                         {
-                            string meetingoKategorija = "Short";
-                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", meetingoKategorija);
+                            susitikimas.Category = "Short";
+                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", susitikimas.Category);
                         }
                         if (kategorija == 4)
                         {
-                            string meetingoKategorija = "TeamBuilding";
-                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", meetingoKategorija);
+                            susitikimas.Category = "TeamBuilding";
+                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", susitikimas.Category);
                         }
                         Console.WriteLine("Pasirinkite susitikimo tipa (1 - Live, 2 - InPerson): ");
                         int meetingoTip = int.Parse(Console.ReadLine());
                         if (meetingoTip == 1)
                         {
-                            string meetingoTipas = "Live";
-                            Console.WriteLine("Jūsų pasirinktas susitikimo tipas: {0}", meetingoTipas);
+                            susitikimas.Type = "Live";
+                            Console.WriteLine("Jūsų pasirinktas susitikimo tipas: {0}", susitikimas.Type);
                         }
                         if (meetingoTip == 2)
                         {
-                            string meetingoTipas = "InPerson";
-                            Console.WriteLine("Jūsų pasirinktas susitikimo tipas: {0}", meetingoTipas);
+                            susitikimas.Type = "InPerson";
+                            Console.WriteLine("Jūsų pasirinktas susitikimo tipas: {0}", susitikimas.Type);
                         }
 
                         Console.WriteLine("Įveskite pradžios datą: ");
-                        string meetingoPradziosData = Console.ReadLine();
+                        susitikimas.StartDate = Console.ReadLine();
                         Console.WriteLine("Įveskite pabaigos datą: ");
-                        string meetingoPabaigosData = Console.ReadLine();
+                        susitikimas.EndDate = Console.ReadLine();
 
                         Console.WriteLine("Jūsų susitikimas užregistruotas sėkmingai");
 

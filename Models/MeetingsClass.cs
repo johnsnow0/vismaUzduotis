@@ -11,6 +11,11 @@ namespace vismaUzduotis.Models
 		public string Type { get; set; }
 		public string StartDate { get; set; }
 		public string EndDate { get; set; }
+
+		public MeetingsClass(int ID)
+        {
+			ID++;
+        }
 	}
 
 	

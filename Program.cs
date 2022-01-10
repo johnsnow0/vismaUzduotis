@@ -139,34 +139,34 @@ namespace MetodasRegistracijosSistema
                         if (kategorija == 1)
                         {
                             susitikimas.Category = "CodeMonkey";
-                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", susitikimas.Category);
+                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}\n", susitikimas.Category);
                         }
                         if (kategorija == 2)
                         {
                             susitikimas.Category = "Hub";
-                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", susitikimas.Category);
+                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}\n", susitikimas.Category);
                         }
                         if (kategorija == 3)
                         {
                             susitikimas.Category = "Short";
-                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", susitikimas.Category);
+                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}\n", susitikimas.Category);
                         }
                         if (kategorija == 4)
                         {
                             susitikimas.Category = "TeamBuilding";
-                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}", susitikimas.Category);
+                            Console.WriteLine("Jūsų pasirinkta kategorija: {0}\n", susitikimas.Category);
                         }
                         Console.WriteLine("Pasirinkite susitikimo tipa (1 - Live, 2 - InPerson): ");
                         int meetingoTip = int.Parse(Console.ReadLine());
                         if (meetingoTip == 1)
                         {
                             susitikimas.Type = "Live";
-                            Console.WriteLine("Jūsų pasirinktas susitikimo tipas: {0}", susitikimas.Type);
+                            Console.WriteLine("Jūsų pasirinktas susitikimo tipas: {0}\n", susitikimas.Type);
                         }
                         if (meetingoTip == 2)
                         {
                             susitikimas.Type = "InPerson";
-                            Console.WriteLine("Jūsų pasirinktas susitikimo tipas: {0}", susitikimas.Type);
+                            Console.WriteLine("Jūsų pasirinktas susitikimo tipas: {0} \n", susitikimas.Type);
                         }
 
                         Console.WriteLine("Įveskite pradžios datą: ");
@@ -177,7 +177,10 @@ namespace MetodasRegistracijosSistema
                         List<MeetingsClass> naujasSusitikimas = new List<MeetingsClass>();
                         naujasSusitikimas.Add(susitikimas);
 
-                        Console.WriteLine("Jūsų susitikimas užregistruotas sėkmingai");
+                       
+                        naujasSusitikimas.ForEach(Console.WriteLine);
+
+                        Console.WriteLine("Jūsų susitikimas užregistruotas sėkmingai \n");
 
                     }
                     if (pasirinkimas == 2)
@@ -230,21 +233,22 @@ namespace MetodasRegistracijosSistema
                                 break;
                             }
                         }
-                        if (pasirinkimas == 4)
-                        {
+                    }
+                    if (pasirinkimas == 4)
+                    {
                             Console.Clear();
                             Console.WriteLine("Prideti žmogų į susitikimą \n");
-                        }
-                        if (pasirinkimas == 5)
-                        {
+                    }
+                    if (pasirinkimas == 5)
+                    {
                             Console.Clear();
                             Console.WriteLine("Pašalinti žmogų iš susitikimo \n");
-                        }
-                        if (pasirinkimas == 6)
-                        {
-                            break;
-                        }
                     }
+                    if (pasirinkimas == 6)
+                    {
+                            break;
+                    }
+                    
                 }
             }
         }

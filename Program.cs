@@ -119,6 +119,7 @@ namespace MetodasRegistracijosSistema
                 while (true)
                 {
                     MeetingsClass susitikimas = new MeetingsClass();
+                    
                     Console.WriteLine(" 1 - Sukurti meetinga \n 2 - Ištrinti meetinga \n 3 - Meetingų sąrašas \n 4 - Prideti žmogų į susitikimą \n 5 - Pašalinti žmogų iš susitikimo \n 6 - Grižti į pagrindinį meniu");
                     Console.Write("Jusu pasirinkimas: ");
                     int pasirinkimas = int.Parse(Console.ReadLine());
@@ -126,9 +127,7 @@ namespace MetodasRegistracijosSistema
                     if (pasirinkimas == 1)
                     {
                         Console.Clear();
-
-                        
-
+                        susitikimas.ID = DB.sekantisMeetingas();
                         Console.WriteLine("Jūsų vardas: ");
                         susitikimas.Name = Console.ReadLine();
                         Console.WriteLine("Atsakingas asmuo: ");
@@ -174,6 +173,9 @@ namespace MetodasRegistracijosSistema
                         susitikimas.StartDate = Console.ReadLine();
                         Console.WriteLine("Įveskite pabaigos datą: ");
                         susitikimas.EndDate = Console.ReadLine();
+
+                        List<MeetingsClass> naujasSusitikimas = new List<MeetingsClass>();
+                        naujasSusitikimas.Add(susitikimas);
 
                         Console.WriteLine("Jūsų susitikimas užregistruotas sėkmingai");
 

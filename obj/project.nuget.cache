@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RIUnAcI39S7j0ODZb5Jcw6v4zc4ByjKyytOIEWQw+QpxzTP7XUudr230kA4+ZeovOO4Hf/SPdchZw6D2HoWqhg==",
+  "dgSpecHash": "AvFjH/Ht29DbeMXdeVYajtoxBgxcAiWUHKAARviJrHMgkCmuISz6lTGRh0FNUR008El+Lj5WI1JUdowy17TPZg==",
   "success": true,
   "projectFilePath": "/Users/vilkas/Documents/GitHub/vismaUzduotis/vismaUzduotis.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/vilkas/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

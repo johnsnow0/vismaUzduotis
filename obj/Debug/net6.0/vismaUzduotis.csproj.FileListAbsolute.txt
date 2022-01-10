@@ -28,3 +28,5 @@
 /Users/vilkas/Documents/GitHub/vismaUzduotis/bin/Debug/net6.0/ref/vismaUzduotis.dll
 /Users/vilkas/Documents/GitHub/vismaUzduotis/bin/Debug/net6.0/vismaUzduotis.pdb
 /Users/vilkas/Documents/GitHub/vismaUzduotis/obj/Debug/net6.0/vismaUzduotis.genruntimeconfig.cache
+/Users/vilkas/Documents/GitHub/vismaUzduotis/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/vilkas/Documents/GitHub/vismaUzduotis/obj/Debug/net6.0/vismaUzduotis.csproj.CopyComplete

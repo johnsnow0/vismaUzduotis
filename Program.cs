@@ -1,5 +1,6 @@
 ﻿using System;
 using vismaUzduotis.Models;
+using Newtonsoft.Json;
 
 namespace MetodasRegistracijosSistema
 {
@@ -127,7 +128,7 @@ namespace MetodasRegistracijosSistema
                     if (pasirinkimas == 1)
                     {
                         Console.Clear();
-                        susitikimas.ID = DB.sekantisMeetingas();
+                        susitikimas.ID = MeetingsClass.sekantisMeetingas();
                         Console.WriteLine("Jūsų vardas: ");
                         susitikimas.Name = Console.ReadLine();
                         Console.WriteLine("Atsakingas asmuo: ");
@@ -174,11 +175,12 @@ namespace MetodasRegistracijosSistema
                         Console.WriteLine("Įveskite pabaigos datą: ");
                         susitikimas.EndDate = Console.ReadLine();
 
-                        List<MeetingsClass> naujasSusitikimas = new List<MeetingsClass>();
-                        naujasSusitikimas.Add(susitikimas);
+                        string json = JsonConvert.SerializeObject(susitikimas);
+                        File.WriteAllText("duomenys.txt", json);
 
-                       
-                        naujasSusitikimas.ForEach(Console.WriteLine);
+                        //List<MeetingsClass> naujasSusitikimas = new List<MeetingsClass>();
+                        //naujasSusitikimas.Add(susitikimas);
+                        //naujasSusitikimas.ForEach(Console.WriteLine);
 
                         Console.WriteLine("Jūsų susitikimas užregistruotas sėkmingai \n");
 
@@ -246,7 +248,8 @@ namespace MetodasRegistracijosSistema
                     }
                     if (pasirinkimas == 6)
                     {
-                            break;
+                        Console.Clear();
+                        break;
                     }
                     
                 }

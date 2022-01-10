@@ -1,6 +1,11 @@
 ﻿using System;
 namespace vismaUzduotis.Models
 {
+	private static int meetingIndex = 0;
+	public static int sekantisMeetingas()
+	{
+		return meetingIndex++;
+	}
 	public class MeetingsClass
 	{
 		public int ID { get; set; }

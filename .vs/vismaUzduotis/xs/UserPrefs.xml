@@ -1,7 +1,9 @@
 ﻿<Properties StartupConfiguration="{1E151DD1-193A-497C-ACA5-BCD1E4D8E758}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/DB.cs">
     <Files>
-      <File FileName="Program.cs" Line="132" Column="60" />
+      <File FileName="Program.cs" Line="131" Column="55" />
+      <File FileName="Models/MeetingsClass.cs" Line="8" Column="3" />
+      <File FileName="Models/DB.cs" Line="15" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

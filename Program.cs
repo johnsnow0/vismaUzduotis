@@ -13,6 +13,8 @@ namespace MetodasRegistracijosSistema
 
         static void Main(string[] args)
         {
+            DB.LoadData();
+            DB.LoadMeetingData();
             Console.WriteLine("VISMA INTERNAL MEETINGS: \n");
 
             while (true)
@@ -37,6 +39,14 @@ namespace MetodasRegistracijosSistema
                     {
                         VARTOTOJAS = vardas;
                         SLAPTAZODIS = slaptazodis;
+
+                        PersonClass naujasVartotojas = new PersonClass();
+                        naujasVartotojas.vardas = vardas;
+                        naujasVartotojas.slaptazodis = slaptazodis;
+
+                        DB.vartotojai.Add(naujasVartotojas);
+                        DB.SaveChanges();
+                         
                     }
                 }
                 if (pasirinkimas == 2)
@@ -60,7 +70,7 @@ namespace MetodasRegistracijosSistema
                     Console.WriteLine("Jusu profilio informacija: ");
                     if (PRISIJUNGIMO_STATUSAS)
                     {
-                        VARTOTOJAS_PAPILDOMA_INFO.spausdintiVartotoja();
+                        //VARTOTOJAS_PAPILDOMA_INFO.spausdintiVartotoja();
                     }
                     else
                     {
@@ -81,7 +91,7 @@ namespace MetodasRegistracijosSistema
             Console.WriteLine("VISMA SUSITIKIMŲ VALDYMO SISTEMA \n");
             //Console.WriteLine("Iveskite savo varda: ");
             //string vartotojoVardas = Console.ReadLine();
-                      
+
 
             //VARTOTOJAS_PAPILDOMA_INFO = new Vartotojas(vartotojoVardas);
 
@@ -98,18 +108,45 @@ namespace MetodasRegistracijosSistema
         }
         static void Prisijungti(string vardas, string slaptazodis)
         {
-            if (vardas == VARTOTOJAS && slaptazodis == SLAPTAZODIS)
+            using (StreamReader r = new StreamReader("auth.txt"))
             {
-                Console.Clear();
-                Console.WriteLine("Prisijungete sekmingai \n");
-                PRISIJUNGIMO_STATUSAS = true;
+                string json = r.ReadToEnd();
+
+                List<PersonClass> duomenys = DB.vartotojai;
+
+                var dalykai = duomenys.FirstOrDefault(o => o.vardas == vardas && o.slaptazodis == slaptazodis).ToString();
+                if (duomenys != null)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Prisijungete sekmingai \n");
+                    PRISIJUNGIMO_STATUSAS = true;
+                }
+
+
+
+                //if (vardas ==  && slaptazodis == items)
+                //{
+                //    Console.Clear();
+                //    Console.WriteLine("Prisijungete sekmingai \n");
+                //    PRISIJUNGIMO_STATUSAS = true;
+                //}
+
+                //if (vardas == VARTOTOJAS && slaptazodis == SLAPTAZODIS)
+                //{
+                //    Console.Clear();
+                //    Console.WriteLine("Prisijungete sekmingai \n");
+                //    PRISIJUNGIMO_STATUSAS = true;
+                //}
+
+
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Prisijungti nepavyko. Blogas vartotojo vardas arba slaptazodis \n");
+                }
             }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("Prisijungti nepavyko. Blogas vartotojo vardas arba slaptazodis \n");
-            }
-        }
+
+         }
         static void susitikimuSistema()
         {
             if (PRISIJUNGIMO_STATUSAS)
@@ -120,7 +157,7 @@ namespace MetodasRegistracijosSistema
                 while (true)
                 {
                     MeetingsClass susitikimas = new MeetingsClass();
-                    
+
                     Console.WriteLine(" 1 - Sukurti meetinga \n 2 - Ištrinti meetinga \n 3 - Meetingų sąrašas \n 4 - Prideti žmogų į susitikimą \n 5 - Pašalinti žmogų iš susitikimo \n 6 - Grižti į pagrindinį meniu");
                     Console.Write("Jusu pasirinkimas: ");
                     int pasirinkimas = int.Parse(Console.ReadLine());
@@ -175,12 +212,8 @@ namespace MetodasRegistracijosSistema
                         Console.WriteLine("Įveskite pabaigos datą: ");
                         susitikimas.EndDate = Console.ReadLine();
 
-                        string json = JsonConvert.SerializeObject(susitikimas);
-                        File.WriteAllText("duomenys.txt", json);
-
-                        //List<MeetingsClass> naujasSusitikimas = new List<MeetingsClass>();
-                        //naujasSusitikimas.Add(susitikimas);
-                        //naujasSusitikimas.ForEach(Console.WriteLine);
+                        DB.meetingai.Add(susitikimas);
+                        DB.SaveMeetingChanges();
 
                         Console.WriteLine("Jūsų susitikimas užregistruotas sėkmingai \n");
 
@@ -203,12 +236,12 @@ namespace MetodasRegistracijosSistema
 
                             if (pasirink == 1)
                             {
-                                Console.WriteLine(DB.meetingai);
+                                //Console.WriteLine(DB.meetingai);
                             }
                             if (pasirink == 2)
                             {
                                 Console.WriteLine("Įveskite susitikimo aprašymą");
-                                Console.WriteLine(DB.meetingai.Where(x => x.Description == Console.ReadLine()));
+                                //Console.WriteLine(DB.meetingai.Where(x => x.Description == Console.ReadLine()));
                             }
                             if (pasirink == 3)
                             {
@@ -238,28 +271,28 @@ namespace MetodasRegistracijosSistema
                     }
                     if (pasirinkimas == 4)
                     {
-                            Console.Clear();
-                            Console.WriteLine("Prideti žmogų į susitikimą \n");
+                        Console.Clear();
+                        Console.WriteLine("Prideti žmogų į susitikimą \n");
                     }
                     if (pasirinkimas == 5)
                     {
-                            Console.Clear();
-                            Console.WriteLine("Pašalinti žmogų iš susitikimo \n");
+                        Console.Clear();
+                        Console.WriteLine("Pašalinti žmogų iš susitikimo \n");
                     }
                     if (pasirinkimas == 6)
                     {
                         Console.Clear();
                         break;
                     }
-                    
+
                 }
             }
         }
-        
-                    
 
-        public class Vartotojas
-        {
+
+    }
+    public class Vartotojas
+    {
             
             public string vardas { get; set; }
             public string slaptazodis { get; set; }
@@ -279,7 +312,7 @@ namespace MetodasRegistracijosSistema
             {
                 Console.WriteLine("{0}", vardas);
             }
-        }
     }
+    
 }
 

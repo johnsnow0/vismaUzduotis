@@ -7,9 +7,9 @@ namespace MetodasRegistracijosSistema
     class Program
     {
         static string VARTOTOJAS;
-        static string SLAPTAZODIS;
+        //static string SLAPTAZODIS;
         static bool PRISIJUNGIMO_STATUSAS = false;
-        //static Vartotojas VARTOTOJAS_PAPILDOMA_INFO = new Vartotojas();
+        
 
         static void Main(string[] args)
         {
@@ -33,12 +33,12 @@ namespace MetodasRegistracijosSistema
                     Console.WriteLine("Pakartokite ivesta slaptazodi: ");
                     string pakartotasSlaptazodis = Console.ReadLine();
 
-                    bool registruotas = Registruotis(vardas, slaptazodis, pakartotasSlaptazodis);
+                    bool registruotas = arSutampaSlaptazodis(slaptazodis, pakartotasSlaptazodis);
 
                     if (registruotas)
                     {
-                        VARTOTOJAS = vardas;
-                        SLAPTAZODIS = slaptazodis;
+                        //VARTOTOJAS = vardas;
+                        //SLAPTAZODIS = slaptazodis;
 
                         PersonClass naujasVartotojas = new PersonClass();
                         naujasVartotojas.vardas = vardas;
@@ -85,16 +85,11 @@ namespace MetodasRegistracijosSistema
                 }
             }
         }
-        static bool Registruotis(string vardas, string slaptazodis, string pakartotasSlaptazodis)
+        static bool arSutampaSlaptazodis(string slaptazodis, string pakartotasSlaptazodis)
         {
             Console.Clear();
             Console.WriteLine("VISMA SUSITIKIMŲ VALDYMO SISTEMA \n");
-            //Console.WriteLine("Iveskite savo varda: ");
-            //string vartotojoVardas = Console.ReadLine();
-
-
-            //VARTOTOJAS_PAPILDOMA_INFO = new Vartotojas(vartotojoVardas);
-
+            
             if (slaptazodis == pakartotasSlaptazodis)
             {
                 Console.WriteLine("Vartotojas priregistruotas \n");
@@ -108,45 +103,24 @@ namespace MetodasRegistracijosSistema
         }
         static void Prisijungti(string vardas, string slaptazodis)
         {
-            using (StreamReader r = new StreamReader("auth.txt"))
-            {
-                string json = r.ReadToEnd();
-
+            
                 List<PersonClass> duomenys = DB.vartotojai;
 
                 var dalykai = duomenys.FirstOrDefault(o => o.vardas == vardas && o.slaptazodis == slaptazodis).ToString();
-                if (duomenys != null)
+                if (dalykai != null)
                 {
                     Console.Clear();
-                    Console.WriteLine("Prisijungete sekmingai \n");
+                    Console.WriteLine("Vartotojas {0}, prisijunge sekmingai \n", vardas);
                     PRISIJUNGIMO_STATUSAS = true;
+                    VARTOTOJAS = vardas; 
                 }
-
-
-
-                //if (vardas ==  && slaptazodis == items)
-                //{
-                //    Console.Clear();
-                //    Console.WriteLine("Prisijungete sekmingai \n");
-                //    PRISIJUNGIMO_STATUSAS = true;
-                //}
-
-                //if (vardas == VARTOTOJAS && slaptazodis == SLAPTAZODIS)
-                //{
-                //    Console.Clear();
-                //    Console.WriteLine("Prisijungete sekmingai \n");
-                //    PRISIJUNGIMO_STATUSAS = true;
-                //}
-
-
+                
                 else
                 {
                     Console.Clear();
                     Console.WriteLine("Prisijungti nepavyko. Blogas vartotojo vardas arba slaptazodis \n");
                 }
-            }
-
-         }
+        }
         static void susitikimuSistema()
         {
             if (PRISIJUNGIMO_STATUSAS)
@@ -168,8 +142,8 @@ namespace MetodasRegistracijosSistema
                         susitikimas.ID = MeetingsClass.sekantisMeetingas();
                         Console.WriteLine("Jūsų vardas: ");
                         susitikimas.Name = Console.ReadLine();
-                        Console.WriteLine("Atsakingas asmuo: ");
-                        susitikimas.ResponsiblePerson = Console.ReadLine();
+                        //Console.WriteLine("Atsakingas asmuo: ");
+                        susitikimas.ResponsiblePerson = VARTOTOJAS;
                         Console.WriteLine("Trumpas meetingo aprašymas: ");
                         susitikimas.Description = Console.ReadLine();
                         Console.WriteLine("Pasirinkite kategorija 1 - CodeMonkey, 2 - Hub, 3 - Short, 4 - TeamBuilding): ");
@@ -229,42 +203,63 @@ namespace MetodasRegistracijosSistema
                         Console.WriteLine("Susitikimų paieška \n");
                         while (true)
                         {
-                            Console.Clear();
                             Console.WriteLine(" 1 - Rodyti visus susitikimus \n 2 - Filtruoti pagal aprašymą \n 3 - Filtruoti pagal atsakingą asmenį \n 4 - Filtruoti pagal kategoriją \n 5 - Filtruoti pagal tipą \n 6 - Filtruoti pagal datas \n 7 - Filtruoti pagal žmonių kiekį \n 8 - Grižti atgal");
                             Console.Write("Jusu pasirinkimas: ");
                             int pasirink = int.Parse(Console.ReadLine());
 
                             if (pasirink == 1)
                             {
-                                //Console.WriteLine(DB.meetingai);
+                                Console.Clear();
+                                Console.WriteLine("MEETINGŲ SĄRAŠAS\n");
+                                List<MeetingsClass> duomenys = DB.meetingai;
+                                foreach (var item in duomenys)
+                                {
+                                    Console.WriteLine(
+                                        "Dalyviai................{0}\n"+
+                                        "Atsakingas asmuo........{1}\n"+
+                                        "Aprasymas...............{2}\n"+
+                                        "Kategorija..............{3}\n"+
+                                        "Susitikimo tipas........{4}\n"+
+                                        "Susitikmo pradzia.......{5}\n"+
+                                        "Susitikimo pabaiga......{6}\n\n",
+                                        item.Name, item.ResponsiblePerson, item.Description, item.Category, item.Type, item.StartDate, item.EndDate);
+                                    //Console.WriteLine("{0} {1} {2} {3} {4} {5} {6}", item.Name, item.ResponsiblePerson, item.Description, item.Category, item.Type, item.StartDate, item.EndDate);
+                                }
                             }
                             if (pasirink == 2)
                             {
+                                Console.Clear();
                                 Console.WriteLine("Įveskite susitikimo aprašymą");
                                 //Console.WriteLine(DB.meetingai.Where(x => x.Description == Console.ReadLine()));
                             }
                             if (pasirink == 3)
                             {
+                                Console.Clear();
                                 Console.WriteLine("Įveskite atsakingą asmenį");
                             }
                             if (pasirink == 4)
                             {
+                                Console.Clear();
                                 Console.WriteLine("Įveskite kategoriją");
                             }
                             if (pasirink == 5)
                             {
+                                Console.Clear();
                                 Console.WriteLine("Įveskite tipą");
                             }
                             if (pasirink == 6)
                             {
+                                Console.Clear();
                                 Console.WriteLine("Įveskite datas");
                             }
                             if (pasirink == 7)
                             {
+                                Console.Clear();
                                 Console.WriteLine("Įveskite žmonių kiekį");
                             }
                             if (pasirink == 8)
                             {
+                                Console.Clear();
                                 break;
                             }
                         }

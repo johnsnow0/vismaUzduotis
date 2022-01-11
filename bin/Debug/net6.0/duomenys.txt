@@ -1,1 +1,0 @@
-{"ID":0,"Name":"pettras","ResponsiblePerson":"simas","Description":"simo meetas","Category":"Hub","Type":"Live","StartDate":"2020.11.11","EndDate":"2020.11.11"}

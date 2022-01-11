@@ -9,7 +9,7 @@ namespace MetodasRegistracijosSistema
         static string VARTOTOJAS;
         static string SLAPTAZODIS;
         static bool PRISIJUNGIMO_STATUSAS = false;
-        static Vartotojas VARTOTOJAS_PAPILDOMA_INFO = new Vartotojas();
+        //static Vartotojas VARTOTOJAS_PAPILDOMA_INFO = new Vartotojas();
 
         static void Main(string[] args)
         {
@@ -79,11 +79,11 @@ namespace MetodasRegistracijosSistema
         {
             Console.Clear();
             Console.WriteLine("VISMA SUSITIKIMŲ VALDYMO SISTEMA \n");
-            Console.WriteLine("Iveskite savo varda: ");
-            string vartotojoVardas = Console.ReadLine();
+            //Console.WriteLine("Iveskite savo varda: ");
+            //string vartotojoVardas = Console.ReadLine();
                       
 
-            VARTOTOJAS_PAPILDOMA_INFO = new Vartotojas(vartotojoVardas);
+            //VARTOTOJAS_PAPILDOMA_INFO = new Vartotojas(vartotojoVardas);
 
             if (slaptazodis == pakartotasSlaptazodis)
             {
@@ -262,6 +262,7 @@ namespace MetodasRegistracijosSistema
         {
             
             public string vardas { get; set; }
+            public string slaptazodis { get; set; }
             
 
             public Vartotojas()

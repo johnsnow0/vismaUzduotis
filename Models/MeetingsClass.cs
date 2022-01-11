@@ -1,13 +1,15 @@
 ﻿using System;
 namespace vismaUzduotis.Models
 {
-	private static int meetingIndex = 0;
-	public static int sekantisMeetingas()
-	{
-		return meetingIndex++;
-	}
+	
 	public class MeetingsClass
 	{
+		private static int meetingIndex = 0;
+		public static int sekantisMeetingas()
+		{
+			return meetingIndex++;
+		}
+
 		public int ID { get; set; }
 		public string Name { get; set; }
 		public string ResponsiblePerson { get; set; }

@@ -70,7 +70,7 @@ namespace MetodasRegistracijosSistema
                     Console.WriteLine("Jusu profilio informacija: ");
                     if (PRISIJUNGIMO_STATUSAS)
                     {
-                        //VARTOTOJAS_PAPILDOMA_INFO.spausdintiVartotoja();
+                        Console.WriteLine("Vartotojas '{0}' prisijunges", VARTOTOJAS);
                     }
                     else
                     {
@@ -223,14 +223,24 @@ namespace MetodasRegistracijosSistema
                                         "Susitikmo pradzia.......{5}\n"+
                                         "Susitikimo pabaiga......{6}\n\n",
                                         item.Name, item.ResponsiblePerson, item.Description, item.Category, item.Type, item.StartDate, item.EndDate);
-                                    //Console.WriteLine("{0} {1} {2} {3} {4} {5} {6}", item.Name, item.ResponsiblePerson, item.Description, item.Category, item.Type, item.StartDate, item.EndDate);
+                                    
                                 }
                             }
                             if (pasirink == 2)
                             {
                                 Console.Clear();
                                 Console.WriteLine("Įveskite susitikimo aprašymą");
-                                //Console.WriteLine(DB.meetingai.Where(x => x.Description == Console.ReadLine()));
+                                string ivestis = Console.ReadLine();
+                                List<MeetingsClass> aprasymas = DB.meetingai;
+                                var atsakymas = aprasymas.Where(x => x.Description == ivestis).ToString();
+                                if (atsakymas != null)
+                                {
+                                    Console.WriteLine(atsakymas);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Aprašymas nerastas");
+                                }
                             }
                             if (pasirink == 3)
                             {

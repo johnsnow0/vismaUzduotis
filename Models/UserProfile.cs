@@ -6,7 +6,7 @@ namespace vismaUzduotis.Models
 		public static void UserProfileInfo()
         {
             Console.Clear();
-            Console.WriteLine("Jusu profilio informacija: ");
+            Console.WriteLine("Your profile info: ");
             if (Login.PRISIJUNGIMO_STATUSAS)
             {
                 Console.WriteLine("Vartotojas '{0}' prisijunges", Login.VARTOTOJAS);

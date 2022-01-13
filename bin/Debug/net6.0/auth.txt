@@ -1,1 +1,1 @@
-[{"vardas":"vilkas","slaptazodis":"vilkas"},{"vardas":"as","slaptazodis":"as"},{"vardas":"cv","slaptazodis":"cv"},{"vardas":"cv","slaptazodis":"cv"}]
+[{"vardas":"vilkas","slaptazodis":"vilkas"},{"vardas":"as","slaptazodis":"as"},{"vardas":"cv","slaptazodis":"cv"},{"vardas":"cv","slaptazodis":"cv"},{"vardas":"re","slaptazodis":"re"}]

@@ -2,7 +2,7 @@
 namespace vismaUzduotis.Models
 {
 	
-	public class MeetingsClass
+	public class Meeting
 	{
 		private static int meetingIndex = 0;
 		public static int sekantisMeetingas()

@@ -9,9 +9,9 @@ namespace vismaUzduotis.Models
         public static void LoginUser()
         {
             Console.Clear();
-            Console.WriteLine("Iveskite prisijungimo varda: ");
+            Console.WriteLine("Enter login name: ");
             string PrisijungimoVardas = Console.ReadLine();
-            Console.WriteLine("Iveskite slaptazodi: ");
+            Console.WriteLine("Enter password: ");
             string PrisijungimoSlaptazodis = Console.ReadLine();
 
             Prisijungti(PrisijungimoVardas, PrisijungimoSlaptazodis);
@@ -19,13 +19,13 @@ namespace vismaUzduotis.Models
         public static void Prisijungti(string vardas, string slaptazodis)
         {
 
-            List<PersonClass> duomenys = DB.vartotojai;
+            List<Person> duomenys = DB.vartotojai;
 
             var dalykai = duomenys.FirstOrDefault(o => o.vardas == vardas && o.slaptazodis == slaptazodis).ToString();
             if (dalykai != null)
             {
                 Console.Clear();
-                Console.WriteLine("Vartotojas {0}, prisijunge sekmingai \n", vardas);
+                Console.WriteLine("User {0}, login succesful \n", vardas);
 
                 PRISIJUNGIMO_STATUSAS = true;
                 VARTOTOJAS = vardas;
@@ -34,7 +34,7 @@ namespace vismaUzduotis.Models
             else
             {
                 Console.Clear();
-                Console.WriteLine("Prisijungti nepavyko. Blogas vartotojo vardas arba slaptazodis \n");
+                Console.WriteLine("Access denied. Bad user name of password \n");
             }
         }
     }

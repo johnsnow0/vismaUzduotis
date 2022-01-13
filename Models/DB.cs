@@ -7,7 +7,7 @@ namespace vismaUzduotis.Models
 	{
 		
 
-		public static List<PersonClass> vartotojai = new();
+		public static List<Person> vartotojai = new();
 
 		public static void SaveChanges()
 		{
@@ -18,10 +18,10 @@ namespace vismaUzduotis.Models
 		public static void LoadData()
         {
 			var gautiDuomenys = File.ReadAllText("auth.txt");
-			vartotojai = JsonConvert.DeserializeObject<List<PersonClass>>(gautiDuomenys);
+			vartotojai = JsonConvert.DeserializeObject<List<Person>>(gautiDuomenys);
 		}
 
-		public static List<MeetingsClass> meetingai = new();
+		public static List<Meeting> meetingai = new();
 
 		public static void SaveMeetingChanges()
 		{
@@ -32,7 +32,7 @@ namespace vismaUzduotis.Models
 		public static void LoadMeetingData()
 		{
 			var gautiDuomenys = File.ReadAllText("meetingai.txt");
-			meetingai = JsonConvert.DeserializeObject<List<MeetingsClass>>(gautiDuomenys);
+			meetingai = JsonConvert.DeserializeObject<List<Meeting>>(gautiDuomenys);
 		}
 	}
 }

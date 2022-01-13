@@ -7,8 +7,8 @@ namespace vismaUzduotis.Models
         {
             while (true)
             {
-                Console.WriteLine(" 1 - Registruotis \n 2 - Prisijungti \n 3 - Susitikimu sistema \n 4 - Profilis \n 5 - Atsijungti");
-                Console.Write("Jusu pasirinkimas: ");
+                Console.WriteLine(" 1 - Register \n 2 - Login \n 3 - Meeting system \n 4 - User info \n 5 - Logout");
+                Console.Write("Your choice: ");
                 int pasirinkimas = int.Parse(Console.ReadLine());
 
                 switch (pasirinkimas)
@@ -28,6 +28,11 @@ namespace vismaUzduotis.Models
                         {
                             MeetingsMenu.Menu();
                         }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please login to proceed\n");
+                        }
                         
                         break;
 
@@ -39,10 +44,11 @@ namespace vismaUzduotis.Models
                     case 5:
 
                         Console.Clear();
-                        Console.WriteLine("Sėkmingai atsijungėte nuo sistemos \n");
+                        Console.WriteLine("Succesful logout \n");
                         break;
 
                 }
+                
             }
         }
     }

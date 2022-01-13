@@ -6,18 +6,18 @@ namespace vismaUzduotis.Models
 		public static void RegisterNewUser()
         {
             Console.Clear();
-            Console.WriteLine("Iveskite nauja prisijungimo varda: ");
+            Console.WriteLine("Enter new login name: ");
             string vardas = Console.ReadLine();
-            Console.WriteLine("Iveskite nauja slaptazodi: ");
+            Console.WriteLine("Enter new password: ");
             string slaptazodis = Console.ReadLine();
-            Console.WriteLine("Pakartokite ivesta slaptazodi: ");
+            Console.WriteLine("Re-enter new password: ");
             string pakartotasSlaptazodis = Console.ReadLine();
 
             bool registruotas = arSutampaSlaptazodis(slaptazodis, pakartotasSlaptazodis);
 
             if (registruotas)
             {
-                PersonClass naujasVartotojas = new PersonClass();
+                Person naujasVartotojas = new Person();
                 naujasVartotojas.vardas = vardas;
                 naujasVartotojas.slaptazodis = slaptazodis;
 
@@ -29,16 +29,16 @@ namespace vismaUzduotis.Models
         static bool arSutampaSlaptazodis(string slaptazodis, string pakartotasSlaptazodis)
         {
             Console.Clear();
-            Console.WriteLine("VISMA SUSITIKIMŲ VALDYMO SISTEMA \n");
+            Console.WriteLine("VISMA MEETINGS MANAGMENT SYSTEM \n");
 
             if (slaptazodis == pakartotasSlaptazodis)
             {
-                Console.WriteLine("Vartotojas priregistruotas \n");
+                Console.WriteLine("User registered \n");
                 return true;
             }
             else
             {
-                Console.WriteLine("Neteisingas slaptazodis \n");
+                Console.WriteLine("Password no match \n");
                 return false;
             }
         }

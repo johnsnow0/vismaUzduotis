@@ -12,12 +12,9 @@ namespace MetodasRegistracijosSistema
         {
             DB.LoadData();
             DB.LoadMeetingData();
-            Console.WriteLine("VISMA VIDINIAI SUSITIKIMAI: \n");
+            Console.WriteLine("VISMA INTERNAL MEETING SYSTEM: \n");
             MainMenu.MainMenuUI();
-                   
-
-
-        }
+                    }
     }
      
 }

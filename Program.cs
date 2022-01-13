@@ -14,7 +14,7 @@ namespace MetodasRegistracijosSistema
             DB.LoadMeetingData();
             Console.WriteLine("VISMA INTERNAL MEETING SYSTEM: \n");
             MainMenu.MainMenuUI();
-                    }
+        }
     }
      
 }

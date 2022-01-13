@@ -37,13 +37,14 @@ namespace vismaUzduotis.Models
 
                     case 2:
                         Console.Clear();
-                        Console.WriteLine("Enter meeting description");
+                        Console.WriteLine("Enter meeting description\n");
                         string ivestis = Console.ReadLine();
                         List<Meeting> aprasymas = DB.meetingai;
                         var atsakymas = aprasymas.Where(x => x.Description == ivestis).ToList();
                         if (atsakymas != null)
                         {
-                            Console.WriteLine(atsakymas);
+                            PrintMeetingDetails(atsakymas);
+                            
                         }
                         else
                         {
@@ -54,28 +55,96 @@ namespace vismaUzduotis.Models
                     case 3:
                         Console.Clear();
                         Console.WriteLine("Enter responsible person");
+                        string ivestis1 = Console.ReadLine();
+                        List<Meeting> aprasymas1 = DB.meetingai;
+                        var atsakymas1 = aprasymas1.Where(x => x.ResponsiblePerson == ivestis1).ToList();
+                        if (atsakymas1 != null)
+                        {
+
+                            PrintMeetingDetails(atsakymas1);
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Responsible person not found");
+                        }
                         break;
 
                     case 4:
                         Console.Clear();
                         Console.WriteLine("Enter category");
-                        break;
+                        string ivestis2 = Console.ReadLine();
+                        List<Meeting> aprasymas2 = DB.meetingai;
+                        var atsakymas2 = aprasymas2.Where(x => x.Category == ivestis2).ToList();
+                        if (atsakymas2 != null)
+                        {
 
+                            PrintMeetingDetails(atsakymas2);
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Category not found");
+                        }
+                        break;
+                        
                     case 5:
                         Console.Clear();
                         Console.WriteLine("Enter type");
-                        break;
+                        string ivestis3 = Console.ReadLine();
+                        List<Meeting> aprasymas3 = DB.meetingai;
+                        var atsakymas3 = aprasymas3.Where(x => x.Type == ivestis3).ToList();
+                        if (atsakymas3 != null)
+                        {
 
+                            PrintMeetingDetails(atsakymas3);
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Type not found");
+                        }
+                        break;
+                        
                     case 6:
                         Console.Clear();
-                        Console.WriteLine("Enter date");
+                        Console.WriteLine("Enter meeting start date");
+                        string ivestis4 = Console.ReadLine();
+                        Console.WriteLine("Enter meeting start date");
+                        string ivestis44 = Console.ReadLine();
+                        List<Meeting> aprasymas4 = DB.meetingai;
+                        var atsakymas4 = aprasymas4.Where(x => x.StartDate == ivestis4 && x.EndDate == ivestis44).ToList();
+                        if (atsakymas4 != null)
+                        {
+
+                            PrintMeetingDetails(atsakymas4);
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Meetings not found");
+                        }
+                        break;
                         break;
 
                     case 7:
                         Console.Clear();
-                        Console.WriteLine("enter people no");
-                        break;
+                        Console.WriteLine("Enter number of meeting members");
+                        string ivestis5 = Console.ReadLine();
+                        List<Meeting> aprasymas5 = DB.meetingai;
+                        var atsakymas5 = aprasymas5.Where(x => x.ResponsiblePerson == ivestis5).ToList();
+                        if (atsakymas5 != null)
+                        {
 
+                            PrintMeetingDetails(atsakymas5);
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Responsible person not found");
+                        }
+                        break;
+                        
                     case 8:
                         Console.Clear();
                         MeetingsMenu.Menu();
@@ -84,6 +153,18 @@ namespace vismaUzduotis.Models
 
             }
 
+        }
+        public static void PrintMeetingDetails(List<Meeting> atsakymas)
+        {
+            atsakymas.ForEach(x => Console.WriteLine(
+                                "Members...................{0}\n" +
+                                "Responsible person........{1}\n" +
+                                "Description...............{2}\n" +
+                                "Category..................{3}\n" +
+                                "Meeting type..............{4}\n" +
+                                "Start of meeting..........{5}\n" +
+                                "End of meeting............{6}\n\n",
+                                x.Name, x.ResponsiblePerson, x.Description, x.Category, x.Type, x.StartDate, x.EndDate));
         }
     }
 }

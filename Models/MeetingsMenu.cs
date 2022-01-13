@@ -34,21 +34,27 @@ namespace vismaUzduotis.Models
                         Console.Clear();
                         Console.WriteLine("Delete meeting from the list \n");
                         Console.WriteLine("Enter meeting description \n");
-                        string ivestis = Console.ReadLine();
-                        List<Meeting> aprasymas = DB.meetingai;
-                        //var atsakymas = aprasymas.SingleOrDefault(x => x.Description == ivestis && x.ResponsiblePerson).ToList();
-                        //var ResponsiblePerson = atsakymas.
-                        //if (atsakymas != null && Login.VARTOTOJAS == )
-                        //{
-                        //    aprasymas.Remove(atsakymas);
-                        //    Console.WriteLine("Success! Meeting has been removed.");
+                        string input = Console.ReadLine();
+                        List<Meeting> description = DB.meetingai;
+                        var response = description.Where(x => x.Description == input).ToList();
 
-                        //}
-                        //else
-                        //{
-                        //    Console.WriteLine("Access denied. You are not resposible for this meeting");
-                        //}
-                            break;
+                        if (response != null)
+                        {
+                            MeetingSearch.PrintMeetingDetails(response);
+                            Console.WriteLine("Do you want to delete this meeting? Y/n\n");
+                            string userInput = Console.ReadLine();
+                            if (userInput == "y" || userInput == "Y")
+                            {
+                                //description.Remove(response);
+                                Console.WriteLine("Success! Meeting has been removed.\n");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Access denied. You are not resposible for this meeting.\n");
+                            }
+                        }
+                                                 
+                        break;
 
                     case 3:
 

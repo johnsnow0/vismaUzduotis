@@ -9,9 +9,16 @@ namespace vismaUzduotis.Models
             {
                 Console.WriteLine(" 1 - Register \n 2 - Login \n 3 - Meeting system \n 4 - User info \n 5 - Logout");
                 Console.Write("Your choice: ");
-                int pasirinkimas = int.Parse(Console.ReadLine());
+                int selection = 0;
+                if (!int.TryParse(Console.ReadLine(), out selection) || selection > 5 || selection < 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid key input\n");
+                    continue;
+                }
+                
 
-                switch (pasirinkimas)
+                switch (selection)
                 {
                     case 1:
                         Register.RegisterNewUser();

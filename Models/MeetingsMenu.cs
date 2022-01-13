@@ -14,8 +14,15 @@ namespace vismaUzduotis.Models
             {
                 Console.WriteLine(" 1 - Create a meeting \n 2 - Delete a meeting \n 3 - Meeting list \n 4 - Add person to a meeting \n 5 - Remove person from a meeting \n 6 - Back to main");
                 Console.Write("Your choice: ");
-                int pasirinkimas = int.Parse(Console.ReadLine());
-                switch (pasirinkimas)
+                int selection = 0;
+                if (!int.TryParse(Console.ReadLine(), out selection) || selection > 6 || selection < 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid key input\n");
+                    continue;
+                }
+                
+                switch (selection)
                 {
                     case 1:
                         AddNewMeeting.AddNewMeetings();
@@ -26,7 +33,22 @@ namespace vismaUzduotis.Models
 
                         Console.Clear();
                         Console.WriteLine("Delete meeting from the list \n");
-                        break;
+                        Console.WriteLine("Enter meeting description \n");
+                        string ivestis = Console.ReadLine();
+                        List<Meeting> aprasymas = DB.meetingai;
+                        //var atsakymas = aprasymas.SingleOrDefault(x => x.Description == ivestis && x.ResponsiblePerson).ToList();
+                        //var ResponsiblePerson = atsakymas.
+                        //if (atsakymas != null && Login.VARTOTOJAS == )
+                        //{
+                        //    aprasymas.Remove(atsakymas);
+                        //    Console.WriteLine("Success! Meeting has been removed.");
+
+                        //}
+                        //else
+                        //{
+                        //    Console.WriteLine("Access denied. You are not resposible for this meeting");
+                        //}
+                            break;
 
                     case 3:
 

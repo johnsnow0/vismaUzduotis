@@ -11,8 +11,15 @@ namespace vismaUzduotis.Models
             {
                 Console.WriteLine(" 1 - Display all meetings \n 2 - Filter by description \n 3 - Filter by responsible person \n 4 - Filter by category \n 5 - Filter by type \n 6 - Filter by date \n 7 - Filter by members no \n 8 - Back to main");
                 Console.Write("Your choice: ");
-                int pasirink = int.Parse(Console.ReadLine());
-                switch (pasirink)
+                int selection = 0;
+                if (!int.TryParse(Console.ReadLine(), out selection) || selection > 8 || selection < 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid key input\n");
+                    continue;
+                }
+                
+                switch (selection)
                 {
 
                     case 1:

@@ -20,19 +20,7 @@ namespace vismaUzduotis.Models
                         Console.Clear();
                         Console.WriteLine("MEETING LIST\n");
                         List<Meeting> duomenys = DB.meetingai;
-                        foreach (var item in duomenys)
-                        {
-                            Console.WriteLine(
-                                "Members...................{0}\n" +
-                                "Responsible person........{1}\n" +
-                                "Description...............{2}\n" +
-                                "Category..................{3}\n" +
-                                "Meeting type..............{4}\n" +
-                                "Start of meeting..........{5}\n" +
-                                "End of meeting............{6}\n\n",
-                                item.Name, item.ResponsiblePerson, item.Description, item.Category, item.Type, item.StartDate, item.EndDate);
-
-                        }
+                        PrintMeetingDetails(duomenys);
                         break;
 
                     case 2:
@@ -125,8 +113,7 @@ namespace vismaUzduotis.Models
                             Console.WriteLine("Meetings not found");
                         }
                         break;
-                        break;
-
+                        
                     case 7:
                         Console.Clear();
                         Console.WriteLine("Enter number of meeting members");

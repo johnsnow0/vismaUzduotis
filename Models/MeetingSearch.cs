@@ -40,7 +40,7 @@ namespace vismaUzduotis.Models
                         Console.WriteLine("Enter meeting description");
                         string ivestis = Console.ReadLine();
                         List<Meeting> aprasymas = DB.meetingai;
-                        var atsakymas = aprasymas.Where(x => x.Description == ivestis).ToString();
+                        var atsakymas = aprasymas.Where(x => x.Description == ivestis).ToList();
                         if (atsakymas != null)
                         {
                             Console.WriteLine(atsakymas);

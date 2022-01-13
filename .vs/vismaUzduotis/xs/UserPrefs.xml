@@ -1,10 +1,17 @@
 ﻿<Properties StartupConfiguration="{1E151DD1-193A-497C-ACA5-BCD1E4D8E758}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
-      <File FileName="Program.cs" Line="73" Column="60" />
-      <File FileName="Models/MeetingsClass.cs" Line="14" Column="16" />
-      <File FileName="Models/DB.cs" Line="31" Column="4" />
+      <File FileName="Program.cs" Line="15" Column="61" />
+      <File FileName="Models/MeetingsClass.cs" Line="20" Column="38" />
+      <File FileName="Models/DB.cs" Line="35" Column="58" />
       <File FileName="Models/PersonClass.cs" Line="11" Column="1" />
+      <File FileName="Models/MeetingSearch.cs" Line="43" Column="94" />
+      <File FileName="Models/MeetingsMenu.cs" Line="28" Column="78" />
+      <File FileName="Models/MainMenu.cs" Line="34" Column="73" />
+      <File FileName="Models/Register.cs" Line="20" Column="53" />
+      <File FileName="Models/Login.cs" Line="22" Column="24" />
+      <File FileName="Models/UserProfile.cs" Line="9" Column="49" />
+      <File FileName="Models/AddNewMeeting.cs" Line="8" Column="49" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,6 +19,7 @@
           <Node name="vismaUzduotis" expanded="True">
             <Node name="vismaUzduotis" expanded="True">
               <Node name="Models" expanded="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>

@@ -7,21 +7,22 @@ namespace vismaUzduotis.Models
         {
             while (true)
             {
-                Console.WriteLine(" 1 - Register \n 2 - Login \n 3 - Meeting system \n 4 - User info \n 5 - Logout");
+                Console.WriteLine(" " +
+                    "1 - Register \n " +
+                    "2 - Login \n " +
+                    "3 - Meeting system \n " +
+                    "4 - User info \n " +
+                    "5 - Logout");
+
                 Console.Write("Your choice: ");
                 var selection = Console.ReadLine();
-                
-                
 
                 switch (selection)
                 {
-                    case "1":
-                        Register.RegisterNewUser();
+                    case "1": Register.RegisterNewUser();
                         break;
 
-                    case "2":
-
-                        Login.LoginUser();
+                    case "2": Login.LoginUser();
                         break;
 
 
@@ -38,13 +39,10 @@ namespace vismaUzduotis.Models
                         
                         break;
 
-                    case "4":
-
-                        UserProfile.UserProfileInfo();
+                    case "4": UserProfile.UserProfileInfo();
                         break;
 
                     case "5":
-
                         Console.Clear();
                         Console.WriteLine("Succesful logout \n");
                         return;

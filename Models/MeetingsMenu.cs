@@ -26,27 +26,19 @@ namespace vismaUzduotis.Models
 
                 switch (selection)
                 {
-                    case "1":
-                        AddNewMeeting.AddNewMeetings();
+                    case "1": AddNewMeeting.AddNewMeetings();
                         break;
 
-
-                    case "2":
-                        DeleteMeeting();
+                    case "2": DeleteMeeting();
                         break;
 
-                    case "3":
-                        MeetingSearch.SusitikimuPaieska();
+                    case "3": MeetingSearch.SusitikimuPaieska();
                         break;
 
-                    case "4":
-                        
-                        AddPersonToMeeting();
+                    case "4": AddPersonToMeeting();
                         break;
 
-                    case "5":
-                        Console.Clear();
-                        Console.WriteLine("Delete person from a meeting \n");
+                    case "5": DeletePersonFromMeeting();                        
                         break;
                     case "6":
                         Console.Clear();
@@ -91,6 +83,7 @@ namespace vismaUzduotis.Models
                     Console.WriteLine("Please enter persons names to add? Y/n\n");
                     string inputPerson = Console.ReadLine();
                     selected.Name = inputPerson;
+                    DB.SaveMeetingChanges();
                 }
                           
 
@@ -125,6 +118,7 @@ namespace vismaUzduotis.Models
                     if (Login.VARTOTOJAS == selected.ResponsiblePerson)
                     {
                         description.Remove(selected);
+                        DB.SaveMeetingChanges();
                         Console.WriteLine("Success! Meeting has been removed.\n");
                     }
                     else
@@ -134,6 +128,11 @@ namespace vismaUzduotis.Models
                 }
 
             }
+        }
+        public static void DeletePersonFromMeeting()
+        {
+            Console.Clear();
+            Console.WriteLine("Delete person from a meeting \n");
         }
     }
 }

@@ -159,6 +159,18 @@ namespace vismaUzduotis.Models
                                 "End of meeting............{6}\n\n",
                                 x.Name, x.ResponsiblePerson, x.Description, x.Category, x.Type, x.StartDate, x.EndDate));
         }
+        //public static void PrintMeetingDetailsObject(Meeting.name, Meeting.)
+        //{
+        //    Console.WriteLine(
+        //                        "Members...................{0}\n" +
+        //                        "Responsible person........{1}\n" +
+        //                        "Description...............{2}\n" +
+        //                        "Category..................{3}\n" +
+        //                        "Meeting type..............{4}\n" +
+        //                        "Start of meeting..........{5}\n" +
+        //                        "End of meeting............{6}\n\n",
+        //                        x.Name, x.ResponsiblePerson, x.Description, x.Category, x.Type, x.StartDate, x.EndDate);
+        //}
     }
 }
 

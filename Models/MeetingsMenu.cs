@@ -42,8 +42,8 @@ namespace vismaUzduotis.Models
 
                         if (selected != null)
                         {
-                            //MeetingSearch.PrintMeetingDetails(selected);
-                            //var auth = selected.Select(x => x.ResponsiblePerson).ToString();
+                            //MeetingSearch.PrintMeetingDetailsObject(selected.Name, selected.ResponsiblePerson, selected.Description, selected.Category, selected. Type, selected.StartDate, selected.EndDate);
+                            
                             Console.WriteLine("Do you want to delete this meeting? Y/n\n");
                             string userInput = Console.ReadLine();
                             if (userInput == "y" || userInput == "Y")

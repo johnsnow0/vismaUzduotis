@@ -118,9 +118,9 @@ namespace vismaUzduotis.Models
                     case "7":
                         Console.Clear();
                         Console.WriteLine("Enter number of meeting members");
-                        string ivestis5 = Console.ReadLine();
+                        int ivestis5 = int.Parse(Console.ReadLine());
                         List<Meeting> aprasymas5 = DB.meetingai;
-                        var atsakymas5 = aprasymas5.Where(x => x.ResponsiblePerson == ivestis5).ToList();
+                        var atsakymas5 = aprasymas5.Where(x => x.Name.Count() == ivestis5).ToList();
                         if (atsakymas5 != null)
                         {
 
@@ -159,18 +159,7 @@ namespace vismaUzduotis.Models
                                 "End of meeting............{6}\n\n",
                                 x.Name, x.ResponsiblePerson, x.Description, x.Category, x.Type, x.StartDate, x.EndDate));
         }
-        //public static void PrintMeetingDetailsObject(Meeting.name, Meeting.)
-        //{
-        //    Console.WriteLine(
-        //                        "Members...................{0}\n" +
-        //                        "Responsible person........{1}\n" +
-        //                        "Description...............{2}\n" +
-        //                        "Category..................{3}\n" +
-        //                        "Meeting type..............{4}\n" +
-        //                        "Start of meeting..........{5}\n" +
-        //                        "End of meeting............{6}\n\n",
-        //                        x.Name, x.ResponsiblePerson, x.Description, x.Category, x.Type, x.StartDate, x.EndDate);
-        //}
+        
     }
 }
 

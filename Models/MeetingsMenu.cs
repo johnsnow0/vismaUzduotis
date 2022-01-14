@@ -15,22 +15,17 @@ namespace vismaUzduotis.Models
                 Console.WriteLine(
                     " 1 - Create a meeting \n 2 - Delete a meeting \n 3 - Meeting list \n 4 - Add person to a meeting \n 5 - Remove person from a meeting \n 6 - Back to main");
                 Console.Write("Your choice: ");
-                int selection = 0;
-                if (!int.TryParse(Console.ReadLine(), out selection) || selection > 6 || selection < 1)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Invalid key input\n");
-                    continue;
-                }
                 
+                var selection = Console.ReadLine();
+
                 switch (selection)
                 {
-                    case 1:
+                    case "1":
                         AddNewMeeting.AddNewMeetings();
                         break;
 
 
-                    case 2:
+                    case "2":
 
                         Console.Clear();
                         Console.WriteLine("Delete meeting from the list \n");
@@ -42,8 +37,16 @@ namespace vismaUzduotis.Models
 
                         if (selected != null)
                         {
-                            //MeetingSearch.PrintMeetingDetailsObject(selected.Name, selected.ResponsiblePerson, selected.Description, selected.Category, selected. Type, selected.StartDate, selected.EndDate);
-                            
+                            Console.WriteLine(
+                                "Members...................{0}\n" +
+                                "Responsible person........{1}\n" +
+                                "Description...............{2}\n" +
+                                "Category..................{3}\n" +
+                                "Meeting type..............{4}\n" +
+                                "Start of meeting..........{5}\n" +
+                                "End of meeting............{6}\n\n",
+                                selected.Name, selected.ResponsiblePerson, selected.Description, selected.Category, selected.Type, selected.StartDate, selected.EndDate);
+
                             Console.WriteLine("Do you want to delete this meeting? Y/n\n");
                             string userInput = Console.ReadLine();
                             if (userInput == "y" || userInput == "Y")
@@ -53,40 +56,48 @@ namespace vismaUzduotis.Models
                                     description.Remove(selected);
                                     Console.WriteLine("Success! Meeting has been removed.\n");
                                 }
-
-                                
+                                else
+                                {
+                                    Console.WriteLine("Access denied. You are not resposible for this meeting.\n");
+                                }
                             }
-                            else
-                            {
-                                Console.WriteLine("Access denied. You are not resposible for this meeting.\n");
-                            }
-                        }
-                                                 
+                            
+                        }                                                 
                         break;
 
-                    case 3:
+                    case "3":
 
                         MeetingSearch.SusitikimuPaieska();
                         break;
 
-                    case 4:
+                    case "4":
                         Console.Clear();
                         Console.WriteLine("Add person to a meeting \n");
                         break;
 
-                    case 5:
+                    case "5":
                         Console.Clear();
                         Console.WriteLine("Delete person from a meeting \n");
                         break;
-                    case 6:
+                    case "6":
                         Console.Clear();
                         MainMenu.MainMenuUI();
+                        break;
+
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Enter valid number 1-6\n");
                         break;
                 }
 
 
             }
         }
-	}
+        
+
+
+
+
+    }
 }
 

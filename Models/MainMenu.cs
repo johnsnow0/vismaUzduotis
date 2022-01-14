@@ -9,28 +9,23 @@ namespace vismaUzduotis.Models
             {
                 Console.WriteLine(" 1 - Register \n 2 - Login \n 3 - Meeting system \n 4 - User info \n 5 - Logout");
                 Console.Write("Your choice: ");
-                int selection = 0;
-                if (!int.TryParse(Console.ReadLine(), out selection) || selection > 5 || selection < 1)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Invalid key input\n");
-                    continue;
-                }
+                var selection = Console.ReadLine();
+                
                 
 
                 switch (selection)
                 {
-                    case 1:
+                    case "1":
                         Register.RegisterNewUser();
                         break;
 
-                    case 2:
+                    case "2":
 
                         Login.LoginUser();
                         break;
 
 
-                    case 3:
+                    case "3":
                         if (Login.PRISIJUNGIMO_STATUSAS)
                         {
                             MeetingsMenu.Menu();
@@ -43,15 +38,20 @@ namespace vismaUzduotis.Models
                         
                         break;
 
-                    case 4:
+                    case "4":
 
                         UserProfile.UserProfileInfo();
                         break;
 
-                    case 5:
+                    case "5":
 
                         Console.Clear();
                         Console.WriteLine("Succesful logout \n");
+                        return;
+
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Enter valid number 1-5\n");
                         break;
 
                 }

@@ -12,7 +12,8 @@ namespace vismaUzduotis.Models
 
             while (true)
             {
-                Console.WriteLine(" 1 - Create a meeting \n 2 - Delete a meeting \n 3 - Meeting list \n 4 - Add person to a meeting \n 5 - Remove person from a meeting \n 6 - Back to main");
+                Console.WriteLine(
+                    " 1 - Create a meeting \n 2 - Delete a meeting \n 3 - Meeting list \n 4 - Add person to a meeting \n 5 - Remove person from a meeting \n 6 - Back to main");
                 Console.Write("Your choice: ");
                 int selection = 0;
                 if (!int.TryParse(Console.ReadLine(), out selection) || selection > 6 || selection < 1)
@@ -36,17 +37,24 @@ namespace vismaUzduotis.Models
                         Console.WriteLine("Enter meeting description \n");
                         string input = Console.ReadLine();
                         List<Meeting> description = DB.meetingai;
-                        var response = description.Where(x => x.Description == input).ToList();
+                        
+                        var selected = description.SingleOrDefault(x => x.Description == input);
 
-                        if (response != null)
+                        if (selected != null)
                         {
-                            MeetingSearch.PrintMeetingDetails(response);
+                            //MeetingSearch.PrintMeetingDetails(selected);
+                            //var auth = selected.Select(x => x.ResponsiblePerson).ToString();
                             Console.WriteLine("Do you want to delete this meeting? Y/n\n");
                             string userInput = Console.ReadLine();
                             if (userInput == "y" || userInput == "Y")
                             {
-                                //description.Remove(response);
-                                Console.WriteLine("Success! Meeting has been removed.\n");
+                                if (Login.VARTOTOJAS == selected.ResponsiblePerson)
+                                {
+                                    description.Remove(selected);
+                                    Console.WriteLine("Success! Meeting has been removed.\n");
+                                }
+
+                                
                             }
                             else
                             {

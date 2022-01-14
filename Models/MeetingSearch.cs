@@ -11,18 +11,12 @@ namespace vismaUzduotis.Models
             {
                 Console.WriteLine(" 1 - Display all meetings \n 2 - Filter by description \n 3 - Filter by responsible person \n 4 - Filter by category \n 5 - Filter by type \n 6 - Filter by date \n 7 - Filter by members no \n 8 - Back to main");
                 Console.Write("Your choice: ");
-                int selection = 0;
-                if (!int.TryParse(Console.ReadLine(), out selection) || selection > 8 || selection < 1)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Invalid key input\n");
-                    continue;
-                }
-                
+                var selection = Console.ReadLine();
+
                 switch (selection)
                 {
 
-                    case 1:
+                    case "1":
 
                         Console.Clear();
                         Console.WriteLine("MEETING LIST\n");
@@ -30,7 +24,7 @@ namespace vismaUzduotis.Models
                         PrintMeetingDetails(duomenys);
                         break;
 
-                    case 2:
+                    case "2":
                         Console.Clear();
                         Console.WriteLine("Enter meeting description\n");
                         string ivestis = Console.ReadLine();
@@ -47,7 +41,7 @@ namespace vismaUzduotis.Models
                         }
                         break;
                         
-                    case 3:
+                    case "3":
                         Console.Clear();
                         Console.WriteLine("Enter responsible person");
                         string ivestis1 = Console.ReadLine();
@@ -65,7 +59,7 @@ namespace vismaUzduotis.Models
                         }
                         break;
 
-                    case 4:
+                    case "4":
                         Console.Clear();
                         Console.WriteLine("Enter category");
                         string ivestis2 = Console.ReadLine();
@@ -83,7 +77,7 @@ namespace vismaUzduotis.Models
                         }
                         break;
                         
-                    case 5:
+                    case "5":
                         Console.Clear();
                         Console.WriteLine("Enter type");
                         string ivestis3 = Console.ReadLine();
@@ -101,7 +95,7 @@ namespace vismaUzduotis.Models
                         }
                         break;
                         
-                    case 6:
+                    case "6":
                         Console.Clear();
                         Console.WriteLine("Enter meeting start date");
                         string ivestis4 = Console.ReadLine();
@@ -121,7 +115,7 @@ namespace vismaUzduotis.Models
                         }
                         break;
                         
-                    case 7:
+                    case "7":
                         Console.Clear();
                         Console.WriteLine("Enter number of meeting members");
                         string ivestis5 = Console.ReadLine();
@@ -139,9 +133,14 @@ namespace vismaUzduotis.Models
                         }
                         break;
                         
-                    case 8:
+                    case "8":
                         Console.Clear();
                         MeetingsMenu.Menu();
+                        break;
+
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Enter valid number 1-8\n");
                         break;
                 }
 

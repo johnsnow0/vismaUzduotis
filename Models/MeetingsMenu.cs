@@ -73,6 +73,7 @@ namespace vismaUzduotis.Models
                     case "4":
                         Console.Clear();
                         Console.WriteLine("Add person to a meeting \n");
+                        AddPersonToMeeting();
                         break;
 
                     case "5":
@@ -93,7 +94,39 @@ namespace vismaUzduotis.Models
 
             }
         }
-        
+        public static void AddPersonToMeeting()
+        {
+            Console.WriteLine("Enter meeting description \n");
+            string input = Console.ReadLine();
+            List<Meeting> description = DB.meetingai;
+
+            var selected = description.SingleOrDefault(x => x.Description == input);
+
+            if (selected != null)
+            {
+                Console.WriteLine(
+                    "Members...................{0}\n" +
+                    "Responsible person........{1}\n" +
+                    "Description...............{2}\n" +
+                    "Category..................{3}\n" +
+                    "Meeting type..............{4}\n" +
+                    "Start of meeting..........{5}\n" +
+                    "End of meeting............{6}\n\n",
+                    selected.Name, selected.ResponsiblePerson, selected.Description, selected.Category, selected.Type, selected.StartDate, selected.EndDate);
+
+                Console.WriteLine("Do you want to add person to this meeting? Y/n\n");
+                string userInput = Console.ReadLine();
+                if (userInput == "y" || userInput == "Y")
+                {
+                    Console.WriteLine("Please enter persons names to add? Y/n\n");
+                    string inputPerson = Console.ReadLine();
+                    selected.Name = inputPerson;
+                }
+                       
+                
+
+            }
+        }
 
 
 

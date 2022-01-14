@@ -122,15 +122,10 @@ namespace vismaUzduotis.Models
                     string inputPerson = Console.ReadLine();
                     selected.Name = inputPerson;
                 }
-                       
-                
+                          
 
             }
         }
-
-
-
-
     }
 }
 

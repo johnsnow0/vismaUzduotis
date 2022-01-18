@@ -9,9 +9,9 @@ namespace vismaUzduotis.Models
             while (true)
             {
                 Console.Clear();
-                susitikimas.ID = Meeting.sekantisMeetingas();
+                //susitikimas.ID = Meeting.sekantisMeetingas();
                 Console.WriteLine("Member name: ");
-                susitikimas.Name = Console.ReadLine();
+                susitikimas.AddPersonToMeeting(Console.ReadLine());
                 //Console.WriteLine("Atsakingas asmuo: ");
                 susitikimas.ResponsiblePerson = Login.VARTOTOJAS;
                 Console.WriteLine("Meeting description: ");

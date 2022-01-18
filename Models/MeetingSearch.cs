@@ -9,7 +9,16 @@ namespace vismaUzduotis.Models
             Console.WriteLine("Search for meeting \n");
             while (true)
             {
-                Console.WriteLine(" 1 - Display all meetings \n 2 - Filter by description \n 3 - Filter by responsible person \n 4 - Filter by category \n 5 - Filter by type \n 6 - Filter by date \n 7 - Filter by members no \n 8 - Back to main");
+                Console.WriteLine(" " +
+                    "1 - Display all meetings \n " +
+                    "2 - Filter by description \n " +
+                    "3 - Filter by responsible person \n " +
+                    "4 - Filter by category \n " +
+                    "5 - Filter by type \n " +
+                    "6 - Filter by date \n " +
+                    "7 - Filter by members no \n " +
+                    "8 - Back to main");
+
                 Console.Write("Your choice: ");
                 var selection = Console.ReadLine();
 
@@ -120,7 +129,7 @@ namespace vismaUzduotis.Models
                         Console.WriteLine("Enter number of meeting members");
                         int ivestis5 = int.Parse(Console.ReadLine());
                         List<Meeting> aprasymas5 = DB.meetingai;
-                        var atsakymas5 = aprasymas5.Where(x => x.Name.Count() == ivestis5).ToList();
+                        var atsakymas5 = aprasymas5.Where(x => x.People.Count() == ivestis5).ToList();
                         if (atsakymas5 != null)
                         {
 
@@ -157,7 +166,7 @@ namespace vismaUzduotis.Models
                                 "Meeting type..............{4}\n" +
                                 "Start of meeting..........{5}\n" +
                                 "End of meeting............{6}\n\n",
-                                x.Name, x.ResponsiblePerson, x.Description, x.Category, x.Type, x.StartDate, x.EndDate));
+                                x.printPeopleList(), x.ResponsiblePerson, x.Description, x.Category, x.Type, x.StartDate, x.EndDate));
         }
         
     }
